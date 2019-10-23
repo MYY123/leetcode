@@ -9,7 +9,7 @@ import java.util.Set;
 public class HashTableTest {
 
 	public int singleNumber(int[] nums)  {
-		//测试git
+		//测试git-123456
 		Set<Integer> numSet = new HashSet<Integer>();
 	    for(int x: nums){
 	    if(numSet.add(x) == false)
