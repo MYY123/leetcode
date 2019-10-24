@@ -86,13 +86,71 @@ public class HashTable {
 	 *
 	 * Input: 10
 	 * Output: 4
-	 * Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+	 * Explanation: There are 4 prime numbers less than 10,
+	 * they are 2, 3, 5, 7.
 	 */
 	@Test
 	public void testCountPrimes(){
 		System.out.println("222222");
+		System.out.println(countPrimes(15));
 	}
-	public int countPrimes(int n) {
-		return 0;
+
+	/**
+	 * 出现的问题：Time Limit Exceeded
+	 * Details
+	 * @param n
+	 * @return
+	 */
+	public int countPrimes(int n){
+		if(n==2) return 0;
+
+		int sum = 0;
+		boolean flag = true;
+		for (int i = 2; i <n ; i++) {
+			if(i==2){
+				sum = sum+1;
+				continue;
+			}
+			flag = true;
+			for (int j = 2; j <i ; j++) {
+				if(i%j==0){
+					flag = false;
+					break;//不是质数
+				}
+			}
+			if(flag){
+				sum = sum+1;
+			}
+
+		}
+		return sum;
+	}
+
+	/**
+	 * 参考的其他人答案，主要的问题是：1，没有理解质数的另外一种求法
+	 * 								   2，并没有用到hashTable数据结构
+	 * @param n
+	 * @return
+	 */
+	public int countPrimes_Plus(int n) {
+		if(n<=1) return 0;
+		boolean[] isPrime = new boolean[n];
+		for(int i = 2; i<isPrime.length; i++){
+			isPrime[i] = true;
+		}
+
+		for(int i = 2; i<isPrime.length; i++){
+
+			if(isPrime[i]){
+				for(int k =2; i*k<isPrime.length; k++){
+					isPrime[i*k] =false;
+				}
+			}
+		}
+		int count = 0;
+		for(boolean i : isPrime){
+			if(i)count++;
+		}
+		return count;
 	}
 }
