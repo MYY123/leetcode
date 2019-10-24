@@ -1,5 +1,7 @@
 package com.leetcode.hashtable;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -75,4 +77,22 @@ public class HashTableTest {
 	    return answer;
         
     }
+
+	/**
+	 * 计算小于非负数n的素数
+	 * @param n
+	 * @return
+	 * Example:
+	 *
+	 * Input: 10
+	 * Output: 4
+	 * Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+	 */
+	@Test
+	public void testCountPrimes(){
+		System.out.println("222222");
+	}
+	public int countPrimes(int n) {
+		return 0;
+	}
 }
